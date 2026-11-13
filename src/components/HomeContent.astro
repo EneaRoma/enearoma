@@ -24,10 +24,10 @@ import salaIntera from '../assets/foto/sala-intera.png';
 import salaVolte from '../assets/foto/sala-volte.png';
 import ingresso from '../assets/foto/ingresso.jpg';
 import salaAngolo from '../assets/foto/sala-angolo.jpeg';
-import barBancone from '../assets/foto/bar-bancone.png';
+import barDrink from '../assets/foto/bar-drink.jpg';
 import salaVelluto from '../assets/foto/sala-velluto.png';
 import salaTavoloLungo from '../assets/foto/sala-tavolo-lungo.png';
-import tavola from '../assets/foto/tavola-apparecchiata.jpeg';
+import cucinaPiatto from '../assets/foto/cucina-tagliolino.jpg';
 
 const locale = (Astro.currentLocale ?? 'it') as Locale;
 const t = testi[locale];
@@ -56,8 +56,8 @@ const L = locale === 'en'
       altSala: 'The ENEA dining room under its brick vaults: globe lamps, the velvet banquette and tables laid with leather place mats',
       altIngresso: 'The ENEA entrance on Via Boncompagni at dusk: the lit sign, the arched windows and the open doors onto the dining room',
       altAngolo: 'A corner of the ENEA dining room: glass-globe lamps, a painting, two laid tables',
-      altTavola: 'A table laid at ENEA: leather place mat with the name, glasses and cutlery',
-      altBancone: 'The ENEA bar: marble counter, globe lamps and the wall of bottles under the brick arch',
+      altPiatto: 'Tagliolini with whipped butter and anchovies on a dark plate, a glass of white wine behind',
+      altDrink: 'Three cocktails at the ENEA bar on a marble table: a tall yellow drink, a coupe and a red tumbler with orange peel',
       etSala: 'The dining room',
       altVelluto: 'Red velvet chairs at two laid tables, beside the bar',
       altTavoloLungo: 'The long wooden table with leather place mats bearing the ENEA name',
@@ -84,8 +84,8 @@ const L = locale === 'en'
       altSala: 'La sala di ENEA sotto le volte in mattoni: lampade a sfera, il divanetto in velluto e i tavoli con le tovagliette in cuoio',
       altIngresso: "L’ingresso di ENEA su Via Boncompagni al tramonto: l’insegna illuminata, le finestre ad arco e le porte aperte sulla sala",
       altAngolo: 'Un angolo della sala di ENEA: lampade a sfera, un quadro, due tavoli apparecchiati',
-      altTavola: 'Una tavola apparecchiata da ENEA: la tovaglietta in cuoio col nome, calici e posate',
-      altBancone: 'Il bar di ENEA: il bancone in marmo, le lampade a sfera e la parete di bottiglie sotto l’arco in mattoni',
+      altPiatto: 'Il tagliolino burro e alici di ENEA su un piatto scuro, dietro un calice di vino bianco',
+      altDrink: 'Tre cocktail del bar di ENEA su un tavolino in marmo: un drink giallo nel bicchiere alto, una coppa e un tumbler rosso con la scorza d’arancia',
       etSala: 'La sala',
       altVelluto: 'Sedie in velluto rosso a due tavoli apparecchiati, accanto al bar',
       altTavoloLungo: 'Il tavolo lungo in legno con le tovagliette in cuoio col nome ENEA',
@@ -180,7 +180,7 @@ const azioni = [
   <div class="wrap portate__griglia">
     <article class="portata">
       <figure class="quadro portata__foto" data-reveal>
-        <Image src={tavola} alt={L.altTavola} widths={[480, 800, 1086]} sizes="(min-width: 58rem) 44vw, 92vw" loading="lazy" class="foto-tavola" />
+        <Image src={cucinaPiatto} alt={L.altPiatto} widths={[480, 800, 1086]} sizes="(min-width: 58rem) 44vw, 92vw" loading="lazy" class="foto-piatto" />
       </figure>
       <p class="eyebrow" data-reveal>{L.etCucina}</p>
       <h2 data-reveal data-ritardo="1">{L.tCucina}</h2>
@@ -193,7 +193,7 @@ const azioni = [
 
     <article class="portata">
       <figure class="quadro portata__foto" data-reveal>
-        <Image src={barBancone} alt={L.altBancone} widths={[480, 800, 1086]} sizes="(min-width: 58rem) 44vw, 92vw" loading="lazy" class="foto-bancone" />
+        <Image src={barDrink} alt={L.altDrink} widths={[480, 800, 1086]} sizes="(min-width: 58rem) 44vw, 92vw" loading="lazy" class="foto-drink" />
       </figure>
       <p class="eyebrow" data-reveal>{L.etBar}</p>
       <h2 data-reveal data-ritardo="1">{L.tBar}</h2>
@@ -375,8 +375,8 @@ const azioni = [
   .portata__rimandi { display: grid; gap: 1.15rem; }
   .portata__foto :global(img) { aspect-ratio: 4 / 3; object-fit: cover; }
   /* foto verticali nel riquadro 4:3: si tengono in vista il nome sulla tovaglietta e lampade e quadro */
-  .portata__foto :global(.foto-tavola) { object-position: 50% 62%; }
-  .portata__foto :global(.foto-bancone) { object-position: 50% 45%; }
+  .portata__foto :global(.foto-piatto) { object-position: 50% 90%; }
+  .portata__foto :global(.foto-drink) { object-position: 50% 70%; }
 
   /* ── la sala: tre foto in fila, sul telefono si scorrono di lato ── */
   .sala { padding-top: 0; }
